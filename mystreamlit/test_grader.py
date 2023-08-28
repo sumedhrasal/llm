@@ -1,19 +1,13 @@
-import streamlit as st 
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain, SequentialChain 
-from langchain.memory import ConversationBufferMemory
 import myopenai
+import streamlit as st 
+
+from langchain.chains import LLMChain
 from langchain.prompts.chat import (
     ChatPromptTemplate,
     SystemMessagePromptTemplate,
-    AIMessagePromptTemplate,
     HumanMessagePromptTemplate,
 )
-from langchain.schema import (
-    AIMessage,
-    HumanMessage,
-    SystemMessage
-)
+
 
 grader_template = """
 You need to act as a Grader. A student {name} will submit an essay on any {topic} of his or her choosing. 

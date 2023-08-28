@@ -7,3 +7,5 @@ dependencies:
   - streamlit
   - langchain
   - python-dotenv
+  - Flask
+  - openai
