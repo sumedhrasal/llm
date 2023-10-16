@@ -17,7 +17,8 @@ def grade_answer():
         logging.info(data)
         return jsonify({"error": "Invalid input request", "details": "question, rubric_params and answer are mandatory"}), 400
 
-    output = perform_evaluation("John", data['question'], data['rubric_params'], data['answer'])
+    name = data['name'] if data.get('name') else 'John'
+    output = perform_evaluation(name, data['question'], data['rubric_params'], data['answer'])
     result = {"message": "Evaluation complete", "data": output}
     
     return jsonify(result), 200

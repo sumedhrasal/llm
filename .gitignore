@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 *.mov
+
+/test_docs

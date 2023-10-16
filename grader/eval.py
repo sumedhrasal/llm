@@ -6,18 +6,33 @@ from langchain.prompts.chat import (
 )
 
 from myopenai import get_chat_model
+import os
+import json
 
 
 grader_template = """
 You need to act as a Grader. You will be provided with a question: {question}.
 Your task is to evaluate the student's answer by going through the rubric params {rubric_params} 
-and award marks out of 10.
+and provide the total score.
 Please provide detailed justification of your evaluation by using the rubric params.
 """
 
 answer_template = """
 Student name: {name}, answer: {answer}
 """
+
+
+def get_rubrics_from_file():
+    parent_folder_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "rubrics_template"))
+
+    # Specify the JSON file path within the parent folder
+    json_file_path = os.path.join(parent_folder_path, "file1.json")
+
+    # Read the JSON file
+    data = None
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    return data
 
 
 def perform_evaluation(
