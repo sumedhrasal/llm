@@ -39,11 +39,18 @@ OPENAI_API_KEY=your-openai-api-key
 5. Run application
 
 ```bash
+python run_api.py
+```
+
+6. Invoke application
+
+```bash
 curl --location 'http://127.0.0.1:8081/api/grade' \
 --header 'Content-Type: application/json' \
 --data '{
     "question": "",
     "rubric_params": "",
-    "answer": ""
+    "answer": "",
+    "name": ""
     }'
 ```
