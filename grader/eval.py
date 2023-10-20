@@ -11,10 +11,12 @@ import json
 
 
 grader_template = """
-You need to act as a Grader. You will be provided with a question: {question}.
-Your task is to evaluate the student's answer by going through the rubric params {rubric_params} 
-and provide the total score.
-Please provide detailed justification of your evaluation by using the rubric params.
+You need to act as a Grader. You will be provided with a question: {question}. Your task is to 
+evaluate the student's answer by going through the rubric params {rubric_params} and provide the total score.
+Whenever a student doesn't achieve a perfect score for a specific section, kindly provide a 
+list of opportunities for improving the response, including any grammar and spelling errors.
+In cases where the student's answer does earn a perfect score, a simple confirmation suffices; 
+no additional details are necessary.
 """
 
 answer_template = """
