@@ -17,6 +17,11 @@ Whenever a student doesn't achieve a perfect score for a specific section, kindl
 list of opportunities for improving the response, including any grammar and spelling errors.
 In cases where the student's answer does earn a perfect score, a simple confirmation suffices; 
 no additional details are necessary.
+
+Your response structure should be as follows:
+- Student's name: {name}
+- Total marks:
+- Evaluation justification: 
 """
 
 answer_template = """
@@ -38,17 +43,17 @@ def get_rubrics_from_file():
 
 
 def perform_evaluation(
-        student_name, question, rubric_params, answer, 
+        name, question, rubric_params, answer, 
         question_params=None, template_answer=None):
     grader_prompt = SystemMessagePromptTemplate.from_template(
-        grader_template, input_variables = ["question", "rubric_params"])
+        grader_template, input_variables = ["question", "rubric_params", "name"])
     answer_prompt = HumanMessagePromptTemplate.from_template(
-        answer_template, input_variables = ["student_name", "answer"])
+        answer_template, input_variables = ["name", "answer"])
 
     chat_prompt = ChatPromptTemplate.from_messages(
         [grader_prompt, answer_prompt]
     )
     chain = LLMChain(llm=get_chat_model(), prompt=chat_prompt)
 
-    return chain.run(question=question, name=student_name, answer=answer, rubric_params=rubric_params)
+    return chain.run(question=question, name=name, answer=answer, rubric_params=rubric_params)
 
