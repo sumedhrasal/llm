@@ -18,31 +18,25 @@ git clone https://github.com/sumedhrasal/llm.git
 cd llm
 ```
 
-2. Install required packages:
-
-```bash
-conda env create -f environment.yml
-```
-
-3. After creating the environment, you can activate it:
-
-```bash
-conda activate llm_env
-```
-
-4. Set up your environment variables using a `.env` file:
+2. Set up your environment variables using a `.env` file:
 
 ```
 OPENAI_API_KEY=your-openai-api-key
 ```
 
-5. Run application
+3. Build the docker image.
 
 ```bash
-python run_api.py
+docker build -t llm_eval .
 ```
 
-6. Invoke application
+4. Run the docker image.
+
+```bash
+docker run -p 8081:8081 llm_eval
+```
+
+5. Invoke application
 
 ```bash
 curl --location 'http://127.0.0.1:8081/api/grade' \
