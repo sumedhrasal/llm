@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from grader import perform_evaluation
-
+import json
 import logging
 
 
@@ -19,8 +19,8 @@ def grade_answer():
 
     name = data['name'] if data.get('name') else 'John'
     output = perform_evaluation(name, data['question'], data['rubric_params'], data['answer'])
-    result = {"message": "Evaluation complete", "data": output}
-    
+    result = {"response": json.loads(output)}
+
     return jsonify(result), 200
 
 
