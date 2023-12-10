@@ -18,10 +18,10 @@ list of opportunities for improving the response, including any grammar and spel
 In cases where the student's answer does earn a perfect score, a simple confirmation suffices; 
 no additional details are necessary.
 
-Your response structure should be as follows:
-- Student's name: {name}
-- Total marks:
-- Evaluation justification: 
+Provide your response as a JSON object with three fields: summary, score, and annotations. 
+The summary field should contain the evaluation response for all the sections, 
+the score field the scores for all the sections, 
+and the annotations field all identified mistakes for all the sections.
 """
 
 answer_template = """
