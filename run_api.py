@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 from grader import perform_evaluation
+from myopenai import does_api_key_exist
 import json
 import logging
 
@@ -12,6 +13,9 @@ logger = logging.getLogger(__name__)
 
 @app.route('/api/grade', methods=['POST'])
 def grade_answer():
+    if not does_api_key_exist():
+        abort(401, 'Unauthorized: Missing OPENAI_API_KEY in .env file')
+
     data = request.json
     if data.get('question') is None or data.get('rubric_params') is None or data.get('answer') is None:
         logging.info(data)
