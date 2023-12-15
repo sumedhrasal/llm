@@ -1,0 +1,24 @@
+{
+    "name": "ELA Long Answer Questions for Middle School",
+    "description": "Answer the following questions using 500-800 words",
+    "criterias": {
+        "content": {
+            "4": "Response is detailed, comprehensive, and demonstrates a deep understanding of the topic or question. Key points are well developed and supported with evidence or examples. Response is well organized and follows a clear structure.",
+            "3": "Response provides sufficient information but may lack some depth or detail. Key points are adequately addressed. Supporting details are provided with some clarity and relevance. Logical organization is evident, but some transitions may be inconsistent.",
+            "2": "Response is detailed, comprehensive, and demonstrates a deep understanding of the topic or question. Key points are present, but may be vague. Limited use of supporting details or examples. Organization may be somewhat confusing or inconsistent.",
+            "1": "Response is detailed, comprehensive, and demonstrates a deep understanding of the topic or question. Key points are missing or unclear. Response lacks supporting details or examples. Response lacks clear organization."
+        },
+        "language and mechanics": {
+            "4": "Exceptional use of language with varied and precise vocabulary. Demonstrates a strong command of grammar, punctuation, and spelling. Writing style is engaging and age-appropriate",
+            "3": "Appropriate use of language with mostly correct grammar and sentence structure. Few spelling or punctuation errors. Writing style is clear and engaging.",
+            "2": "Some language errors or mechanical mistakes present, but they do not significantly impact punctuation errors. Writing style is limited and somewhat bland. Limited vocabulary or sentence variety.",
+            "1": "Frequent language errors hinder comprehension. Vocabulary and sentence structure need improvement. Language may be unclear."
+        }, 
+        "creativity and originality": {
+            "4": "Response is highly creative, imaginative, and unique. Original ideas and perspectives are clearly evident.",
+            "3": "Response shows creativity and some originality. Some original ideas and perspectives are evident.",
+            "2": "Response lacks originality and creativity. Ideas may be generic or unoriginal. Limited use of imagination or unique viewpoints.",
+            "1": "Response lacks creativity and originality. Ideas are generic and uninteresting."
+        }
+    }
+}
