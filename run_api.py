@@ -23,7 +23,10 @@ def grade_answer():
 
     name = data['name'] if data.get('name') else 'John'
     output = perform_evaluation(name, data['question'], data['rubric_params'], data['answer'])
-    result = {"response": json.loads(output)}
+    output_json = json.loads(output)
+    if output_json.get('score'):
+        output_json['score']['total'] = sum(output_json['score'].values())
+    result = {"response": output_json}
 
     return jsonify(result), 200
 
