@@ -9,20 +9,18 @@ import boto3
 # Load environment variables from .env file
 load_dotenv()
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
-environment = os.environ.get('FLASK_ENV', 'dev')
-aws_parameter_store = os.environ.get('PARAMETER_STORE', '')
-
 
 def set_key():
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    environment = os.environ.get('FLASK_ENV', 'dev')
+    aws_parameter_store = os.environ.get('PARAMETER_STORE')
     if environment == "dev":
         return openai_api_key
     else:
-        # aws_parameter_store = os.environ.get('PARAMETER_STORE', '')
-        # ssm = boto3.client('ssm', region_name='us-east-1')
-        # response = ssm.get_parameter(Name=aws_parameter_store, WithDecryption=True)
-        # return response['Parameter']['Value']
-        return openai_api_key
+        ssm = boto3.client('ssm', region_name='us-east-1')
+        response = ssm.get_parameter(Name=aws_parameter_store, WithDecryption=True)
+        return response['Parameter']['Value']
+        # return openai_api_key
 
 
 key = set_key()
