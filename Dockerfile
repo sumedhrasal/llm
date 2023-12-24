@@ -20,5 +20,4 @@ ENV PARAMETER_STORE=
 EXPOSE 8081
 
 # Define the command to run the Flask application
-# CMD [ "gunicorn", "-b", "0.0.0.0:8081", "run_api:app" ]
-CMD [ "python", "run_api.py" ]
+CMD [ "gunicorn", "-b", "0.0.0.0:8081", "run_api:app" ]

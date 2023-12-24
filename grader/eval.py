@@ -16,12 +16,13 @@ evaluate the student's answer by going through the rubric params {rubric_params}
 Whenever a student doesn't achieve a perfect score for a specific section, kindly provide a 
 list of opportunities for improving the response, including any grammar and spelling errors.
 In cases where the student's answer does earn a perfect score, a simple confirmation suffices; 
-no additional details are necessary.
+no additional details are necessary. If the answer is incorrect or incoherent please award 0 marks 
+for all sections and the summary field should state - Incorrect answer.
 
 Provide your response as a JSON object with three fields: summary, score, and annotations. 
-The summary field should contain the evaluation response for all the sections, 
-the score field the scores for all the sections, 
-and the annotations field all identified mistakes for all the sections.
+- The summary field should contain the evaluation response for all the sections into one paragraph. 
+- The score field the scores for all the sections.
+- The annotations field all identified mistakes for all the sections.
 """
 
 answer_template = """
