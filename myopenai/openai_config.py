@@ -20,7 +20,6 @@ def set_key():
         ssm = boto3.client('ssm', region_name='us-east-1')
         response = ssm.get_parameter(Name=aws_parameter_store, WithDecryption=True)
         return response['Parameter']['Value']
-        # return openai_api_key
 
 
 key = set_key()
@@ -40,4 +39,3 @@ def get_model():
 
 def get_chat_model():
     return ChatOpenAI(openai_api_key=key, temperature=0.0)
-
