@@ -33,13 +33,13 @@ docker build -t llm_eval .
 4. Run the docker image.
 
 ```bash
-docker run -p 8081:8081 llm_eval
+docker run --rm -p 8081:8081 llm_eval
 ```
 
 5. Invoke application
 
 ```bash
-curl --location 'http://127.0.0.1:8081/api/grade' \
+curl --location 'http://0.0.0.0:8081/api/grade' \
 --header 'Content-Type: application/json' \
 --data '{
     "question": "",
